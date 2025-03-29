@@ -2,14 +2,20 @@
   "name": "residences-back",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "api/index.js",
   "scripts": {
+    "start": "node api/index.js",
+    "dev": "nodemon api/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vercel/node": "^4.0.0",
     "express": "^4.21.2"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
