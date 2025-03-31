@@ -1,19 +1,7 @@
 import express from 'express';
 import { adminDb } from '../../firebaseAdmin.js';
-import { getAuth } from 'firebase-admin/auth';
 
 const router = express.Router();
-
-router.get('/auth', async (req, res) => {
-  try {
-    // Gera token para um UID específico (configure no Firebase Console)
-    const token = await getAuth().createCustomToken('usuario-admin-teste');
-    
-    res.json({ token });
-  } catch (error) {
-    res.status(500).json({ error: 'Erro ao gerar token' });
-  }
-});
 
 // Middleware de autenticação
 const authenticateAdmin = async (req, res, next) => {
@@ -44,6 +32,14 @@ const authenticateAdmin = async (req, res, next) => {
     res.status(401).json({ error: 'Token inválido' });
   }
 };
+
+router.get('/auth', async (req, res) => {
+  try {
+    res.json({ message: 'Autenticação bem-sucedida' });
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao autenticar' });
+  }
+});
 
 // Endpoint protegido
 router.get('/', authenticateAdmin, async (req, res) => {
