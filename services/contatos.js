@@ -1,26 +1,23 @@
-// Simulando um "banco de dados" em memória
-let contatos = [
-    { id: 1, nome: "João", telefone: "61-9999-9999" },
-    { id: 2, nome: "Maria", telefone: "61-8888-8888" }
-];
+import { db, collection, addDoc } from '../firebaseConfig.js';
 
-class ContatosService {
-    listar() {
-        return contatos;
-    }
+const criarLead = async (dados) => {
+  try {
+    // Remove campos undefined/nulos
+    const dadosLimpos = Object.fromEntries(
+      Object.entries(dados).filter(([_, value]) => value !== undefined && value !== null)
+    );
 
-    criar(dadosContato) {
-        const novoContato = {
-            id: contatos.length + 1,
-            ...dadosContato
-        };
-        contatos.push(novoContato);
-        return novoContato;
-    }
+    const docRef = await addDoc(collection(db, 'leads'), dadosLimpos);
+    
+    return { 
+      id: docRef.id,
+      ...dadosLimpos
+    };
+    
+  } catch (error) {
+    console.error('Erro no Firestore:', error);
+    throw new Error(`Erro ao salvar lead: ${error.message}`);
+  }
+};
 
-    // buscarPorId(id) { ... }
-    // atualizar(id, dados) { ... }
-    // deletar(id) { ... }
-}
-
-module.exports = new ContatosService();
+export { criarLead };
