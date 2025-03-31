@@ -1,8 +1,9 @@
 {
   "name": "residences-back",
   "version": "1.0.0",
-  "description": "",
+  "description": "imobiliaria",
   "main": "api/index.js",
+  "type": "module",
   "scripts": {
     "start": "node api/contatos.js",
     "dev": "nodemon api/contatos.js",
@@ -13,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
-    "firebase": "^10.11.1"
+    "firebase": "^10.11.1",
+    "firebase-admin": "^13.2.0"
   },
   "engines": {
     "node": "18.x"
