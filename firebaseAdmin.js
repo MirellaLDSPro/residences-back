@@ -1,7 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { initializeApp, cert } from 'firebase-admin/app';
 import { getAuth } from 'firebase-admin/auth'; // Adicione esta linha
 import { getFirestore } from 'firebase-admin/firestore';
 import { readFileSync } from 'fs';
+
 
 // Carrega as credenciais
 // const serviceAccount = JSON.parse(
@@ -11,7 +15,7 @@ import { readFileSync } from 'fs';
 // Inicializa o Admin SDK
 const adminApp = initializeApp({
   credential: cert({
-    type: process.env.FIREBASE_ADMIN_TYPE,
+    type: 'service_account',
     project_id: process.env.FIREBASE_PROJECT_ID,
     private_key_id: process.env.FIREBASE_ADMIN_PRIVATE_KEY_ID,
     private_key: process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n') || '',
