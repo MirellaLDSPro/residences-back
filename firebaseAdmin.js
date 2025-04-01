@@ -1,4 +1,5 @@
 import { initializeApp, cert } from 'firebase-admin/app';
+import { getAuth } from 'firebase-admin/auth'; // Adicione esta linha
 import { getFirestore } from 'firebase-admin/firestore';
 import { readFileSync } from 'fs';
 
@@ -12,4 +13,5 @@ const adminApp = initializeApp({
   credential: cert(serviceAccount)
 });
 
+export const adminAuth = getAuth(adminApp);
 export const adminDb = getFirestore(adminApp);

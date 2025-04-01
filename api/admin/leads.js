@@ -1,5 +1,5 @@
 import express from 'express';
-import { adminDb } from '../../firebaseAdmin.js';
+import { adminAuth, adminDb } from '../../firebaseAdmin.js';
 
 const router = express.Router();
 
@@ -20,7 +20,7 @@ const authenticateAdmin = async (req, res, next) => {
   const token = authHeader.split(' ')[1];
   
   try {
-    const { uid } = await admin.auth().verifyIdToken(token);
+    const { uid } = await adminAuth.verifyIdToken(token);
     const userDoc = await adminDb.collection('admins').doc(uid).get();
     
     if (!userDoc.exists) {
@@ -33,16 +33,21 @@ const authenticateAdmin = async (req, res, next) => {
   }
 };
 
+// TODO: Provis
 router.get('/auth', async (req, res) => {
   try {
-    res.json({ message: 'Autenticação bem-sucedida' });
+    const userId = process.env.ADMIN_USER_ID;
+    
+    const token = await adminAuth.createCustomToken(userId);
+    res.json({ token });
+    
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao autenticar' });
+    res.status(500).json({ error: error.message });
   }
 });
 
 // Endpoint protegido
-router.get('/', authenticateAdmin, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const snapshot = await adminDb.collection('leads').get();
     const leads = snapshot.docs.map(doc => ({

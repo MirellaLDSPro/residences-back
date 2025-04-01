@@ -4,11 +4,11 @@ import { getFirestore } from 'firebase/firestore';
 const firebaseConfig = {
     apiKey: process.env.FIREBASE_API_KEY,
     authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: "residence-back",
-    storageBucket: "residence-back.firebasestorage.app",
-    messagingSenderId: "684115200207",
-    appId: "1:684115200207:web:f6383a3b0616f8ef3fcfba"
-  };
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.FIREBASE_APP_ID
+};
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
