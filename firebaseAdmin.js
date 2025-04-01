@@ -37,8 +37,7 @@ function formatAdminKey() {
     level: 'warn',
     message: prodKey,
     timestamp: new Date().toISOString(),
-    userId: adminAuth.currentUser?.uid,
-    leadData: { nome, email }
+    userId: 2
   }));
 
   return process.env.NODE_ENV === 'development' ? localKey : prodKey;
