@@ -1,5 +1,6 @@
 import express from 'express';
 import { criar } from '../controllers/contatos.js';
+import adminLeadsRouter from './admin/leads.js';
 
 const router = express.Router();
 
@@ -13,6 +14,7 @@ router.post('/', criar);
 const app = express();
 app.use(express.json());
 app.use('/api/contatos', router);
+app.use('/api/admin/leads', adminLeadsRouter);
 
 // Inicia o servidor apenas quando executado diretamente
 if (process.env.NODE_ENV !== 'test') {
