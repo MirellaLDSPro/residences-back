@@ -33,7 +33,9 @@ function formatAdminKey() {
   const localKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n') || '';
   const prodKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace('|||', '\n') || '';
   
-  return process.env.NODE_ENV === 'development' ? localKey : prodKey?.replace('|||', /\\n/g) || '';
+  console.log(prodKey);
+
+  return process.env.NODE_ENV === 'development' ? localKey : prodKey;
 }
 
 export const adminAuth = getAuth(adminApp);
