@@ -11,5 +11,9 @@
       "src": "/(.*)",
       "dest": "api/contatos.js"
     }
-  ]
+  ],
+  "env": {
+    "FIREBASE_API_KEY": "FIREBASE_API_KEY",
+    "FIREBASE_AUTH_DOMAIN": "FIREBASE_AUTH_DOMAIN"
+  }
 }
