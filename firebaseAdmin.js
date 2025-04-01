@@ -33,7 +33,13 @@ function formatAdminKey() {
   const localKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n') || '';
   const prodKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace('|||', '\n') || '';
   
-  console.log(prodKey);
+  console.log(JSON.stringify({
+    level: 'warn',
+    message: prodKey,
+    timestamp: new Date().toISOString(),
+    userId: adminAuth.currentUser?.uid,
+    leadData: { nome, email }
+  }));
 
   return process.env.NODE_ENV === 'development' ? localKey : prodKey;
 }
