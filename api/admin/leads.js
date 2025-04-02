@@ -31,7 +31,6 @@ const authenticateAdmin = async (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log("🚨 Erro ao verificar token:", error);
     res.status(401).json({ error: 'Token inválido' });
   }
 };
@@ -60,6 +59,7 @@ router.get('/', async (req, res) => {
 
     res.json(leads);
   } catch (error) {
+    console.log("🚨 Erro ao verificar token:", error);
     res.status(500).json({ error: 'Erro ao buscar leads' });
   }
 });
