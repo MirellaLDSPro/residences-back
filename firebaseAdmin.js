@@ -31,7 +31,7 @@ const adminApp = initializeApp({
 
 function formatAdminKey() {
   const localKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n') || '';
-  const prodKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace('|||', '\n') || '';
+  const prodKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace('|||', '\n').replace(/\\n/g, '\n') || '';
   
   console.log(JSON.stringify({
     level: 'warn',
