@@ -1,5 +1,5 @@
 import express from 'express';
-import { adminAuth } from '../../firebaseAdmin.js'; // Importe seu adminAuth
+import { adminAuth } from '../../../firebaseAdmin.js'; // Importe seu adminAuth
 
 const app = express();
 app.use(express.json());
