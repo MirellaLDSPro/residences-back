@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Middleware de autenticação
 const authenticateAdmin = async (req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'http://192.168.15.9:8081');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,authorization')
 
