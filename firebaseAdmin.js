@@ -16,7 +16,7 @@ import { readFileSync } from 'fs';
 const adminApp = initializeApp({
   credential: cert({
     type: 'service_account',
-    project_id: process.env.FIREBASE_PROJECT_ID,
+    project_id: 'residence-back',
     private_key_id: process.env.FIREBASE_ADMIN_PRIVATE_KEY_ID,
     private_key: formatAdminKey(),
     client_email: process.env.FIREBASE_ADMIN_CLIENT_EMAIL,
