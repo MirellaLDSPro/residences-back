@@ -10,10 +10,10 @@ const authenticateAdmin = async (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   // Modo desenvolvimento: bypass de autenticação
-  if (process.env.NODE_ENV === 'development') {
-    console.warn('⚠️  Modo desenvolvimento - autenticação desativada');
-    return next();
-  }
+  // if (process.env.NODE_ENV === 'development') {
+  //   console.warn('⚠️  Modo desenvolvimento - autenticação desativada');
+  //   return next();
+  // }
   
   if (!authHeader?.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'Token não fornecido' });
@@ -49,7 +49,7 @@ router.get('/auth', async (req, res) => {
 });
 
 // Endpoint protegido
-router.get('/', async (req, res) => {
+router.get('/', authenticateAdmin, async (req, res) => {
   try {
     const snapshot = await adminDb.collection('leads').get();
     const leads = snapshot.docs.map(doc => ({
