@@ -36,12 +36,12 @@ function formatAdminKey() {
   const key = process.env.NODE_ENV === 'development' ? 'localKey' : 'prodKey';
   console.log('Passou aqui', key);
   
-  // console.log(JSON.stringify({
-  //   level: 'warn',
-  //   message: prodKey,
-  //   timestamp: new Date().toISOString(),
-  //   userId: 2
-  // }));
+  console.log("Teste", JSON.stringify({
+    level: 'warn',
+    message: prodKey,
+    timestamp: new Date().toISOString(),
+    userId: 2
+  }));
 
   return process.env.NODE_ENV === 'development' ? localKey : prodKey;
 }
