@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use('/api/contatos', router);
 app.use('/api/debug-env', debugEnvRouter);
-// app.use('/api/admin/leads', adminLeadsRouter);
+app.use('/api/admin/leads', adminLeadsRouter);
 
 // Inicia o servidor apenas quando executado diretamente
 if (process.env.NODE_ENV !== 'test') {
