@@ -31,6 +31,7 @@ const authenticateAdmin = async (req, res, next) => {
 
     next();
   } catch (error) {
+    console.log("🚨 Erro ao verificar token:", error);
     res.status(401).json({ error: 'Token inválido' });
   }
 };
