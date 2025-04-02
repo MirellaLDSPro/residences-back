@@ -44,8 +44,8 @@ const authenticateAdmin = async (req, res, next) => {
 
     next();
   } catch (error) {
-    console.log("🚨 Erro ao verificar token:", error);
-    console.log("🚨 Erro ao verificar token:", authHeader);
+    console.log("🚨 Erro ao verificar token find user:", error);
+    console.log("🚨 Erro ao verificar token find user:", authHeader);
     res.status(401).json({ error: 'Token inválido' });
   }
 };
@@ -75,7 +75,7 @@ router.get('/', authenticateAdmin, async (req, res) => {
 
     res.json(leads);
   } catch (error) {
-    console.log("🚨 Erro ao verificar token:", error);
+    console.log("🚨 Erro ao verificar token rota:", error);
     res.status(500).json({ error: 'Erro ao buscar leads' });
   }
 });
