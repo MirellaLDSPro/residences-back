@@ -33,15 +33,15 @@ function formatAdminKey() {
   const localKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace(/\\n/g, '\n') || '';
   const prodKey = process.env.FIREBASE_ADMIN_PRIVATE_KEY?.replace('|||', '\n').replace(/\\n/g, '\n') || '';
   
-  const key = process.env.NODE_ENV === 'development' ? 'localKey' : 'prodKey';
-  console.log('Passou aqui', key);
+  // const key = process.env.NODE_ENV === 'development' ? 'localKey' : 'prodKey';
+  // console.log('Passou aqui', key);
   
-  console.log("Teste", JSON.stringify({
-    level: 'warn',
-    message: prodKey,
-    timestamp: new Date().toISOString(),
-    userId: 2
-  }));
+  // console.log("Teste", JSON.stringify({
+  //   level: 'warn',
+  //   message: prodKey,
+  //   timestamp: new Date().toISOString(),
+  //   userId: 2
+  // }));
 
   return process.env.NODE_ENV === 'development' ? localKey : prodKey;
 }

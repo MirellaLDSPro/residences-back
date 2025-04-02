@@ -1,6 +1,7 @@
 import express from 'express';
 import { criar } from '../controllers/contatos.js';
 import adminLeadsRouter from './admin/leads.js';
+import debugEnvRouter from './debug-env.js';
 
 const router = express.Router();
 
@@ -14,6 +15,7 @@ router.post('/', criar);
 const app = express();
 app.use(express.json());
 app.use('/api/contatos', router);
+app.use('/api/debug-env', debugEnvRouter);
 app.use('/api/admin/leads', adminLeadsRouter);
 
 // Inicia o servidor apenas quando executado diretamente
