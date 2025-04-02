@@ -14,7 +14,7 @@ const authenticateAdmin = async (req, res, next) => {
   //   console.warn('⚠️  Modo desenvolvimento - autenticação desativada');
   //   return next();
   // }
-  
+  console.log("token:", authHeader);
   if (!authHeader?.startsWith('Bearer ')) {
     return res.status(401).json({ error: 'Token não fornecido' });
   }
