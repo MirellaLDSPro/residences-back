@@ -1,4 +1,5 @@
 import express from 'express';
+import cors  from 'cors';
 import { criar } from '../controllers/contatos.js';
 import adminLeadsRouter from './admin/leads.js';
 import debugEnvRouter from './debug-env.js';
@@ -13,6 +14,7 @@ router.post('/', criar);
 
 // Cria o servidor Express
 const app = express();
+app.use(cors())
 app.use(express.json());
 app.use('/api/contatos', router);
 app.use('/api/admin/leads', adminLeadsRouter);
