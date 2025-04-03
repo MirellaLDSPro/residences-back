@@ -17,14 +17,14 @@
       "source": "/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Authorization", "value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImE5ZGRjYTc2YzEyMzMyNmI5ZTJlODJkOGFjNDg0MWU1MzMyMmI3NmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVzaWRlbmNlLWJhY2siLCJhdWQiOiJyZXNpZGVuY2UtYmFjayIsImF1dGhfdGltZSI6MTc0MzYzNTU3NiwidXNlcl9pZCI6ImdpdWd1aWc3OXk5OGg5OTgiLCJzdWIiOiJnaXVndWlnNzl5OThoOTk4IiwiaWF0IjoxNzQzNjM1NTc2LCJleHAiOjE3NDM2MzkxNzYsImVtYWlsIjoibWxkcy5hdWxhc0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsibWxkcy5hdWxhc0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJjdXN0b20ifX0.bsfuyAFCticEnLwDropS35bHUnnUrkP0iqBbMCmW4_Ho6voIqfe5_4HLLxfCXsAt8_2jTxZnkCfvlWXyHXQ-3HsEprxacbjnL03Rvx1ilaycw92RKDQPcTn04LNIQjkxdHm8E39sbVVhuWzE6oorhXwdocGJPDmTme_4MPegedvTJu1KxCwzAB5NKjFNBpQrN-5D_CJfB0oZ24zmRf-i09mh7h1J821SkODzaVh9LibyR_tO-tX1w9UFzgWXcG6Rz0MHkfbKckc8H8NEZQzy95wKNrLyrwP_c57HutZQ-DpxuNmCPlZZuuAajxcNS956OcA6WLofrJy0LRryKE-jCQ" }
+        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Authorization, Content-Type" }
       ]
     },
     {
       "source": "/residence-back/(.*)",
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Authorization", "value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImE5ZGRjYTc2YzEyMzMyNmI5ZTJlODJkOGFjNDg0MWU1MzMyMmI3NmEiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vcmVzaWRlbmNlLWJhY2siLCJhdWQiOiJyZXNpZGVuY2UtYmFjayIsImF1dGhfdGltZSI6MTc0MzYzNTU3NiwidXNlcl9pZCI6ImdpdWd1aWc3OXk5OGg5OTgiLCJzdWIiOiJnaXVndWlnNzl5OThoOTk4IiwiaWF0IjoxNzQzNjM1NTc2LCJleHAiOjE3NDM2MzkxNzYsImVtYWlsIjoibWxkcy5hdWxhc0BnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsibWxkcy5hdWxhc0BnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJjdXN0b20ifX0.bsfuyAFCticEnLwDropS35bHUnnUrkP0iqBbMCmW4_Ho6voIqfe5_4HLLxfCXsAt8_2jTxZnkCfvlWXyHXQ-3HsEprxacbjnL03Rvx1ilaycw92RKDQPcTn04LNIQjkxdHm8E39sbVVhuWzE6oorhXwdocGJPDmTme_4MPegedvTJu1KxCwzAB5NKjFNBpQrN-5D_CJfB0oZ24zmRf-i09mh7h1J821SkODzaVh9LibyR_tO-tX1w9UFzgWXcG6Rz0MHkfbKckc8H8NEZQzy95wKNrLyrwP_c57HutZQ-DpxuNmCPlZZuuAajxcNS956OcA6WLofrJy0LRryKE-jCQ" }
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
     }
   ],
