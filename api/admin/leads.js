@@ -1,5 +1,4 @@
 import express from 'express';
-import cors from 'cors';
 import dotenv from 'dotenv';
 dotenv.config();
 import { adminAuth, adminDb } from '../../firebaseAdmin.js';
@@ -64,7 +63,7 @@ router.get('/auth', async (req, res) => {
 });
 
 // Endpoint protegido
-router.get('/', authenticateAdmin, async (req, res) => {
+router.get('/', async (req, res) => {
 
   try {
     const snapshot = await adminDb.collection('leads').get();
