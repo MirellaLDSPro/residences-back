@@ -7,12 +7,12 @@ const router = express.Router();
 // Rota para listar todos os contatos
 router.get('/', async (_req: Request, res: Response) => {
     // Lê o header "Authorization"
-    const authorizationHeader = _req.headers.authorization;
-    console.log(`Token recebido: ${authorizationHeader}`);
+    // const authorizationHeader = _req.headers.authorization;
+    // console.log(`Token recebido: ${authorizationHeader}`);
 
-    if (!authorizationHeader) {
-        return res.status(401).json({ error: 'Authorization header is missing' });
-    }
+    // if (!authorizationHeader) {
+    //     return res.status(401).json({ error: 'Authorization header is missing' });
+    // }
 
     try {
         // Busca todos os documentos da coleção "contatos"
