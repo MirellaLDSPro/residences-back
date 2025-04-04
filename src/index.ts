@@ -1,7 +1,15 @@
 import express, { Request, Response } from 'express';
+import cors from 'cors'; // Importa o middleware CORS
 import contatosRouter from './contatos'; // Importa o roteador de contatos
 
 const app = express();
+
+// Habilitar CORS
+app.use(cors({
+  origin: '*', // Permite todas as origens (ajuste conforme necessário)
+  allowedHeaders: ['Authorization', 'Content-Type'], // Permite o header Authorization
+}));
+
 const port = process.env.PORT || 3000;
 
 // Middleware para interpretar JSON no corpo das requisições
