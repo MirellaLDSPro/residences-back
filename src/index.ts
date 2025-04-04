@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import contatosRouter from './contatos'; // Importa o roteador de contatos
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 // Middleware para interpretar JSON no corpo das requisições
 app.use(express.json());

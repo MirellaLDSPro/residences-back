@@ -13,7 +13,6 @@ console.log('Iniciando Firebase...');
 // Objeto de configuração do Firebase
 const serviceAccount = {
     projectId: 'residence-back',
-    // privateKey: process.env.FIREBASE_ADMIN_PRIVATE_KEY_ID || '',
     privateKey: ((_a = process.env.TESTE_KEY) === null || _a === void 0 ? void 0 : _a.replace(/\|\|\|/g, '\n').replace(/\\n/g, '\n')) || '',
     clientEmail: process.env.FIREBASE_ADMIN_CLIENT_EMAIL || '',
 };

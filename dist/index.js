@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const contatos_1 = __importDefault(require("./contatos")); // Importa o roteador de contatos
 const app = (0, express_1.default)();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 // Middleware para interpretar JSON no corpo das requisições
 app.use(express_1.default.json());
 // Rota principal

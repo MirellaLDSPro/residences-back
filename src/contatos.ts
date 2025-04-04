@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { db } from './firebase';
+import { createContact } from './controllers/contato';
 
 const router = express.Router();
 
@@ -12,7 +13,7 @@ router.get('/', async (_req: Request, res: Response) => {
         return res.status(401).json({ error: 'Authorization header is missing' });
     }
 
-    console.log(`Token recebido: ${authorizationHeader}`);
+    // console.log(`Token recebido: ${authorizationHeader}`);
 
     try {
         // Busca todos os documentos da coleção "contatos"
@@ -33,31 +34,6 @@ router.get('/', async (_req: Request, res: Response) => {
 });
 
 // Rota para cadastrar um novo contato
-router.post('/', async (req: Request, res: Response) => {
-    const { nome, email } = req.body;
-
-    if (!nome || !email) {
-        return res.status(400).json({ error: 'Nome e email são obrigatórios' });
-    }
-
-    const novoContato = {
-        nome,
-        email,
-        criadoEm: new Date().toISOString(),
-    };
-
-    console.log('Novo contato:', novoContato);
-
-    try {
-        // Salva o contato no Firestore
-        const docRef = await db.collection('contatos').add(novoContato);
-        console.log(`Contato salvo com ID: ${docRef.id}`);
-
-        res.status(201).json({ id: docRef.id, ...novoContato });
-    } catch (error) {
-        console.error('Erro ao salvar contato:', error);
-        res.status(500).json({ error: 'Erro ao salvar contato' });
-    }
-});
+router.post('/', createContact);
 
 export default router;

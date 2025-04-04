@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const firebase_1 = require("./firebase");
+const contato_1 = require("./controllers/contato");
 const router = express_1.default.Router();
 // Rota para listar todos os contatos
 router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -22,7 +23,7 @@ router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (!authorizationHeader) {
         return res.status(401).json({ error: 'Authorization header is missing' });
     }
-    console.log(`Token recebido: ${authorizationHeader}`);
+    // console.log(`Token recebido: ${authorizationHeader}`);
     try {
         // Busca todos os documentos da coleção "contatos"
         const contatosSnapshot = yield firebase_1.db.collection('contatos').get();
@@ -37,27 +38,6 @@ router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 }));
 // Rota para cadastrar um novo contato
-router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { nome, email } = req.body;
-    if (!nome || !email) {
-        return res.status(400).json({ error: 'Nome e email são obrigatórios' });
-    }
-    const novoContato = {
-        nome,
-        email,
-        criadoEm: new Date().toISOString(),
-    };
-    console.log('Novo contato:', novoContato);
-    try {
-        // Salva o contato no Firestore
-        const docRef = yield firebase_1.db.collection('contatos').add(novoContato);
-        console.log(`Contato salvo com ID: ${docRef.id}`);
-        res.status(201).json(Object.assign({ id: docRef.id }, novoContato));
-    }
-    catch (error) {
-        console.error('Erro ao salvar contato:', error);
-        res.status(500).json({ error: 'Erro ao salvar contato' });
-    }
-}));
+router.post('/', contato_1.createContact);
 exports.default = router;
 //# sourceMappingURL=contatos.js.map
