@@ -15,16 +15,16 @@
         {
             "src": "/contatos",
             "methods": ["POST"],
-            "dest": "dist/index.js"
+            "dest": "/dist/index.js"
         },
         {
             "src": "/contatos",
             "methods": ["GET"],
-            "dest": "dist/index.js"
+            "dest": "/dist/index.js"
         },
         {
             "src": "/(.*)",
-            "dest": "dist/index.js"
+            "dest": "/dist/index.js"
         }
     ]
 }
