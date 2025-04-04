@@ -28,4 +28,5 @@ app.use('/contatos', contatos_1.default);
 app.listen(port, () => {
     console.log(`Server is listening on ${port}`);
 });
+exports.default = app; // Exporta o app Express
 //# sourceMappingURL=index.js.map

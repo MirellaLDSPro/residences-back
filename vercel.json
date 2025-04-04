@@ -1,16 +1,30 @@
 {
-  "version": 2,
-  "builds": [
-      {
-          "src": "dist/index.js",
-          "use": "@vercel/node",
-          "config": { "includeFiles": ["dist/**"] }
-      }
-  ],
-  "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "dist/index.js"
-      }
-  ]
+    "version": 2,
+    "builds": [
+        {
+            "src": "dist/index.js",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": [
+                    "dist/**"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/contatos",
+            "methods": ["POST"],
+            "dest": "dist/index.js"
+        },
+        {
+            "src": "/contatos",
+            "methods": ["GET"],
+            "dest": "dist/index.js"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "dist/index.js"
+        }
+    ]
 }

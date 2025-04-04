@@ -31,3 +31,5 @@ app.use('/contatos', contatosRouter);
 app.listen(port, () => {
   console.log(`Server is listening on ${port}`);
 });
+
+export default app; // Exporta o app Express
