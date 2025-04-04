@@ -8,10 +8,11 @@ const router = express.Router();
 router.get('/', async (_req: Request, res: Response) => {
     
     const authorizationHeader = _req.headers.authorization;
+    console.log('authorizationHeader', authorizationHeader);
 
-    if (!authorizationHeader) {
-        return res.status(401).json({ error: 'Authorization header is missing' });
-    }
+    // if (!authorizationHeader) {
+    //     return res.status(401).json({ error: 'Authorization header is missing' });
+    // }
 
     try {
         // Busca todos os documentos da coleção "contatos"
