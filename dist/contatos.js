@@ -20,10 +20,10 @@ const router = express_1.default.Router();
 router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     // Lê o header "Authorization"
     const authorizationHeader = _req.headers.authorization;
+    console.log(`Token recebido: ${authorizationHeader}`);
     if (!authorizationHeader) {
         return res.status(401).json({ error: 'Authorization header is missing' });
     }
-    // console.log(`Token recebido: ${authorizationHeader}`);
     try {
         // Busca todos os documentos da coleção "contatos"
         const contatosSnapshot = yield firebase_1.db.collection('contatos').get();
