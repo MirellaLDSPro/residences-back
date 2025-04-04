@@ -19,7 +19,6 @@ const router = express_1.default.Router();
 // Rota para listar todos os contatos
 router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const authorizationHeader = _req.headers.authorization;
-    console.log(`Token recebido: ${_req.headers}`);
     if (!authorizationHeader) {
         return res.status(401).json({ error: 'Authorization header is missing' });
     }

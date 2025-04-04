@@ -3,6 +3,8 @@ import { saveContact } from '../services/contato';
 
 export const createContact = async (req: Request, res: Response) => {
     try {
+        console.log('Dados do contato:', req.body); // Log dos dados recebidos
+
         const contactData = req.body;
         const result = await saveContact(contactData);
 

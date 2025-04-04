@@ -13,6 +13,7 @@ exports.createContact = void 0;
 const contato_1 = require("../services/contato");
 const createContact = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log('Dados do contato:', req.body); // Log dos dados recebidos
         const contactData = req.body;
         const result = yield (0, contato_1.saveContact)(contactData);
         if (result && result.success) {
